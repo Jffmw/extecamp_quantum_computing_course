@@ -1,0 +1,70 @@
+#+title: Computação Quântica - Aula 2
+* Matrizes
+#+BEGIN_SRC python
+    # Testes de matrizes
+    M = [[0,1],[3,4]]
+    for i in M:
+        print(i)
+    print("# andando linha por linha")
+    for i in range(len(M)):
+        for j in range(len(M[0])):
+            print(M[i][j], end=' ')
+        print()
+    print("fim da matriz")
+    print("# andando coluna por coluna")
+    for i in range(len(M)):
+        for j in range(len(M[0])):
+            print(M[j][i], end=" ")
+        print()
+    print("fim da matriz")
+#+END_SRC
+
+#+RESULTS:
+: None
+
+** Definiçâo de matrizes com a biblioteca numpy
+#+BEGIN_SRC python
+    import numpy as np
+    Sz = np.array([[1,0],[0,-1]]) # sigma z umas das matrizes de Pauli
+    return(Sz)
+#+END_SRC
+
+#+RESULTS:
+| 1 |  0 |
+| 0 | -1 |
+
+
+** Soma de matriz, Multiplicação e divisão por escalar
+
+#+BEGIN_SRC python
+import numpy as np
+v0 = np.array([[1],[0]])   # representação de um qubits? (ainda não entendi direito essa parte)
+v1 = np.array([[0],[1]])
+Psi = 2*v0 + 3*v1          # o estado Psi é uma combinação linear do estados v0 e v1
+return(Psi)
+#+END_SRC
+
+#+RESULTS:
+| 2 |
+| 3 |
+
+também a definição de raiz no nump
+
+#+BEGIN_SRC python
+import numpy as np
+M = np.array([[1,1],[1,-1]])
+Had = (1/np.sqrt(2))*M   # matriz M divida por raiz de 2
+return(Had)               # Hadamard é uma das portas lógicas da computação quântica (entender melhor)
+#+END_SRC
+
+#+RESULTS:
+| 0.70710678 |  0.70710678 |
+| 0.70710678 | -0.70710678 |
+
+** Multiplicação de matriz
+#+BEGIN_SRC python
+return(Sz@Sz)
+return(Had@Had) # Hadamard ao quadrado é a matriz identidade
+#+END_SRC
+
+#+RESULTS:
